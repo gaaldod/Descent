@@ -51,6 +51,7 @@ public class DeathScreenUI : MonoBehaviour
         overlayObj.transform.SetParent(transform, false);
         darkRedOverlay = overlayObj.AddComponent<Image>();
         darkRedOverlay.color = new Color(0.3f, 0f, 0f, 0.95f); // Dark red with high alpha
+        darkRedOverlay.raycastTarget = false; // Don't block clicks on buttons
         var overlayRect = darkRedOverlay.rectTransform;
         overlayRect.anchorMin = Vector2.zero;
         overlayRect.anchorMax = Vector2.one;
@@ -72,44 +73,50 @@ public class DeathScreenUI : MonoBehaviour
         deathTextRect.offsetMin = Vector2.zero;
         deathTextRect.offsetMax = Vector2.zero;
         
-        // Button container
+        // Button container (create AFTER overlay so it appears on top)
         GameObject buttonContainer = new GameObject("ButtonContainer");
         buttonContainer.transform.SetParent(transform, false);
         var containerRect = buttonContainer.AddComponent<RectTransform>();
-        containerRect.anchorMin = new Vector2(0.3f, 0.2f);
-        containerRect.anchorMax = new Vector2(0.7f, 0.5f);
+        containerRect.anchorMin = new Vector2(0.25f, 0.15f);
+        containerRect.anchorMax = new Vector2(0.75f, 0.45f);
         containerRect.offsetMin = Vector2.zero;
         containerRect.offsetMax = Vector2.zero;
         
         var verticalLayout = buttonContainer.AddComponent<VerticalLayoutGroup>();
-        verticalLayout.spacing = 20f;
+        verticalLayout.spacing = 30f;
         verticalLayout.childAlignment = TextAnchor.MiddleCenter;
         verticalLayout.childControlHeight = true;
         verticalLayout.childControlWidth = true;
         verticalLayout.childForceExpandHeight = false;
-        verticalLayout.childForceExpandWidth = true;
+        verticalLayout.childForceExpandWidth = false;
+        verticalLayout.padding = new RectOffset(10, 10, 10, 10);
         
         // Load Save Button
         GameObject loadSaveBtnObj = new GameObject("LoadSaveButton");
         loadSaveBtnObj.transform.SetParent(buttonContainer.transform, false);
+        var loadSaveBtnRect = loadSaveBtnObj.AddComponent<RectTransform>();
+        loadSaveBtnRect.sizeDelta = new Vector2(300f, 60f);
+        
         loadSaveButton = loadSaveBtnObj.AddComponent<Button>();
         var loadSaveColors = loadSaveButton.colors;
-        loadSaveColors.normalColor = new Color(0.2f, 0.2f, 0.2f, 1f);
-        loadSaveColors.highlightedColor = new Color(0.3f, 0.3f, 0.3f, 1f);
-        loadSaveColors.pressedColor = new Color(0.1f, 0.1f, 0.1f, 1f);
+        loadSaveColors.normalColor = new Color(0.3f, 0.3f, 0.3f, 1f);
+        loadSaveColors.highlightedColor = new Color(0.5f, 0.5f, 0.5f, 1f);
+        loadSaveColors.pressedColor = new Color(0.2f, 0.2f, 0.2f, 1f);
         loadSaveButton.colors = loadSaveColors;
         
         Image loadSaveImage = loadSaveBtnObj.AddComponent<Image>();
-        loadSaveImage.color = new Color(0.2f, 0.2f, 0.2f, 1f);
+        loadSaveImage.color = new Color(0.3f, 0.3f, 0.3f, 1f);
+        loadSaveImage.raycastTarget = true;
         
         GameObject loadSaveTextObj = new GameObject("Text");
         loadSaveTextObj.transform.SetParent(loadSaveBtnObj.transform, false);
         Text loadSaveText = loadSaveTextObj.AddComponent<Text>();
         loadSaveText.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-        loadSaveText.fontSize = 24;
+        loadSaveText.fontSize = 28;
         loadSaveText.color = Color.white;
         loadSaveText.alignment = TextAnchor.MiddleCenter;
         loadSaveText.text = "Load Last Save";
+        loadSaveText.raycastTarget = false;
         
         var loadSaveTextRect = loadSaveText.rectTransform;
         loadSaveTextRect.anchorMin = Vector2.zero;
@@ -122,24 +129,29 @@ public class DeathScreenUI : MonoBehaviour
         // Main Menu Button
         GameObject mainMenuBtnObj = new GameObject("MainMenuButton");
         mainMenuBtnObj.transform.SetParent(buttonContainer.transform, false);
+        var mainMenuBtnRect = mainMenuBtnObj.AddComponent<RectTransform>();
+        mainMenuBtnRect.sizeDelta = new Vector2(300f, 60f);
+        
         mainMenuButton = mainMenuBtnObj.AddComponent<Button>();
         var mainMenuColors = mainMenuButton.colors;
-        mainMenuColors.normalColor = new Color(0.2f, 0.2f, 0.2f, 1f);
-        mainMenuColors.highlightedColor = new Color(0.3f, 0.3f, 0.3f, 1f);
-        mainMenuColors.pressedColor = new Color(0.1f, 0.1f, 0.1f, 1f);
+        mainMenuColors.normalColor = new Color(0.3f, 0.3f, 0.3f, 1f);
+        mainMenuColors.highlightedColor = new Color(0.5f, 0.5f, 0.5f, 1f);
+        mainMenuColors.pressedColor = new Color(0.2f, 0.2f, 0.2f, 1f);
         mainMenuButton.colors = mainMenuColors;
         
         Image mainMenuImage = mainMenuBtnObj.AddComponent<Image>();
-        mainMenuImage.color = new Color(0.2f, 0.2f, 0.2f, 1f);
+        mainMenuImage.color = new Color(0.3f, 0.3f, 0.3f, 1f);
+        mainMenuImage.raycastTarget = true;
         
         GameObject mainMenuTextObj = new GameObject("Text");
         mainMenuTextObj.transform.SetParent(mainMenuBtnObj.transform, false);
         Text mainMenuText = mainMenuTextObj.AddComponent<Text>();
         mainMenuText.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-        mainMenuText.fontSize = 24;
+        mainMenuText.fontSize = 28;
         mainMenuText.color = Color.white;
         mainMenuText.alignment = TextAnchor.MiddleCenter;
         mainMenuText.text = "Main Menu";
+        mainMenuText.raycastTarget = false;
         
         var mainMenuTextRect = mainMenuText.rectTransform;
         mainMenuTextRect.anchorMin = Vector2.zero;
@@ -148,6 +160,16 @@ public class DeathScreenUI : MonoBehaviour
         mainMenuTextRect.offsetMax = Vector2.zero;
         
         mainMenuButton.onClick.AddListener(OnMainMenuClicked);
+        
+        // Ensure buttons are active
+        loadSaveBtnObj.SetActive(true);
+        mainMenuBtnObj.SetActive(true);
+        buttonContainer.SetActive(true);
+        
+        // Force layout update
+        UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(containerRect);
+        
+        Debug.Log("[DeathScreenUI] UI built - Buttons created and active");
     }
     
     public void Show()
@@ -231,6 +253,18 @@ public class DeathScreenUI : MonoBehaviour
             darkRedOverlay.color = finalColor;
         }
         canvasGroup.alpha = 1f;
+        
+        // Ensure buttons are visible and interactable
+        if (loadSaveButton != null)
+        {
+            loadSaveButton.gameObject.SetActive(true);
+            Debug.Log($"[DeathScreenUI] Load Save Button active: {loadSaveButton.gameObject.activeSelf}, interactable: {loadSaveButton.interactable}");
+        }
+        if (mainMenuButton != null)
+        {
+            mainMenuButton.gameObject.SetActive(true);
+            Debug.Log($"[DeathScreenUI] Main Menu Button active: {mainMenuButton.gameObject.activeSelf}, interactable: {mainMenuButton.interactable}");
+        }
         
         // Pause the game after fade-in completes
         Time.timeScale = 0f;

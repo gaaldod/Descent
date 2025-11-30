@@ -1,12 +1,17 @@
 using UnityEngine;
 using Unity.Cinemachine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class FadeTrigger : MonoBehaviour
 {
     public CinemachineCamera vcam;   // the vcam with noise
     public CanvasGroup fadeCanvas;          // UI panel for fade
     public float fadeDuration = 1.5f;
+    
+    [Header("Scene Transition")]
+    [Tooltip("Scene to load after fade completes")]
+    public string targetSceneName = "HouseScene";
 
     public AudioSource runningAudio;        // footsteps loop
     public AudioClip thudClip;              // thud sound file
@@ -65,5 +70,15 @@ public class FadeTrigger : MonoBehaviour
         }
 
         fadeCanvas.alpha = 1f;
+        
+        // Load the target scene after fade completes
+        if (!string.IsNullOrEmpty(targetSceneName))
+        {
+            SceneManager.LoadScene(targetSceneName);
+        }
+        else
+        {
+            Debug.LogWarning("[FadeTrigger] Target scene name is empty! Cannot load scene.");
+        }
     }
 }
