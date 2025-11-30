@@ -1,0 +1,232 @@
+fileFormatVersion: 2
+guid: e8055576558e50c4b81bac50e4e1a984
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: BagMan_Mesh_Tpose(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Armature
+      parentName: BagMan_Mesh_Tpose(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: FOOT.L
+      parentName: Armature
+      position: {x: -0.0012356823, y: 0.000069708905, z: 0.0010033151}
+      rotation: {x: -0.0013099653, y: -0.18861806, z: 0.98204964, w: 0.0002515989}
+      scale: {x: 1.0000001, y: 1.0000004, z: 1.0000012}
+    - name: ROOT
+      parentName: Armature
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0, y: 1.323489e-23, z: -1.6069079e-16, w: 1}
+      scale: {x: 1, y: 0.99999976, z: 0.9999999}
+    - name: HIP CONTROLLER
+      parentName: ROOT
+      position: {x: -1.6731017e-20, y: 0.00005205929, z: 0.010310068}
+      rotation: {x: -0, y: -1.323489e-23, z: 1.6069079e-16, w: 1}
+      scale: {x: 1, y: 0.9999998, z: 0.9999999}
+    - name: SPINE
+      parentName: HIP CONTROLLER
+      position: {x: -6.4358977e-26, y: -5.9604643e-10, z: 0}
+      rotation: {x: 0.76209974, y: -0.00000007718322, z: -0.0000000908494, w: 0.6474596}
+      scale: {x: 1, y: 0.99999994, z: 1.0000001}
+    - name: TORSO
+      parentName: SPINE
+      position: {x: 3.5527136e-17, y: 0.0024699483, z: 1.11758706e-10}
+      rotation: {x: -0.12580861, y: 1.4210856e-14, z: 0.000000029995118, w: 0.9920546}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: HEAD
+      parentName: TORSO
+      position: {x: 4.4408916e-18, y: 0.004827817, z: 1.8626451e-11}
+      rotation: {x: 0.10380666, y: 5.6448878e-14, z: -0.000000024749435, w: 0.9945975}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: SHOULDER.L
+      parentName: TORSO
+      position: {x: -0.0003323699, y: 0.0039734696, z: 0.00071786676}
+      rotation: {x: -0.053441405, y: -0.14184971, z: 0.6668733, w: 0.72959083}
+      scale: {x: 1.0000001, y: 0.9999998, z: 1.0000001}
+    - name: UPPER ARM.L
+      parentName: SHOULDER.L
+      position: {x: -0.00017202414, y: 0.0019831494, z: -0.00009837264}
+      rotation: {x: 0.14826058, y: 0.01837883, z: 0.03780295, w: 0.9880547}
+      scale: {x: 1.0000004, y: 1.0000006, z: 1.0000001}
+    - name: FOREARM.L
+      parentName: UPPER ARM.L
+      position: {x: -9.711867e-12, y: 0.003267142, z: -1.0706457e-12}
+      rotation: {x: -0.0010017602, y: -0.000006666406, z: 0.007987172, w: 0.99996763}
+      scale: {x: 1.0000002, y: 1.0000006, z: 0.9999999}
+    - name: HAND.L
+      parentName: FOREARM.L
+      position: {x: 5.251214e-10, y: 0.002828957, z: 1.4551914e-12}
+      rotation: {x: 0.0020277472, y: -0.0001907184, z: -0.057559095, w: 0.9983401}
+      scale: {x: 1.0000001, y: 1.0000001, z: 0.9999998}
+    - name: Knife
+      parentName: HAND.L
+      position: {x: -0.0002296432, y: 0.0008150324, z: 0.000008976405}
+      rotation: {x: 0.7069448, y: -0.015142425, z: -0.7069445, w: -0.0151424315}
+      scale: {x: 0.063263535, y: 0.06326352, z: 0.06326354}
+    - name: SHOULDER.R
+      parentName: TORSO
+      position: {x: 0.00033237028, y: 0.0039734696, z: 0.00071786664}
+      rotation: {x: -0.053441614, y: 0.14184996, z: -0.66687304, w: 0.72959095}
+      scale: {x: 0.99999994, y: 0.9999999, z: 1}
+    - name: UPPER ARM.R
+      parentName: SHOULDER.R
+      position: {x: 0.00017202416, y: 0.0019831497, z: -0.00009837268}
+      rotation: {x: 0.1482605, y: -0.018378852, z: -0.03780293, w: 0.9880547}
+      scale: {x: 1.0000004, y: 1.0000002, z: 1.0000001}
+    - name: FOREARM.R
+      parentName: UPPER ARM.R
+      position: {x: -0.0000000011850698, y: 0.003267142, z: 1.1436895e-12}
+      rotation: {x: -0.0010016857, y: 0.0000066421912, z: -0.0079872655, w: 0.9999676}
+      scale: {x: 0.99999994, y: 1.0000002, z: 1}
+    - name: HAND.R
+      parentName: FOREARM.R
+      position: {x: -5.0649934e-10, y: 0.0028289582, z: 3.3833203e-12}
+      rotation: {x: 0.002046506, y: 0.000045778426, z: -0.013428078, w: 0.9999078}
+      scale: {x: 1, y: 0.9999999, z: 0.9999999}
+    - name: HIP.L
+      parentName: SPINE
+      position: {x: 3.2196463e-17, y: 3.306195e-10, z: 1.3969838e-10}
+      rotation: {x: -0.3820099, y: 0.64894605, z: 0.2808362, w: 0.59503657}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1.0000002}
+    - name: UPPER LEG.L
+      parentName: HIP.L
+      position: {x: 0.00015915537, y: 0.0007745089, z: -0.00061548734}
+      rotation: {x: -0.6041482, y: -0.33692333, z: 0.6216524, w: 0.36747235}
+      scale: {x: 1.0000005, y: 1.0000005, z: 1.0000005}
+    - name: SHIN.L
+      parentName: UPPER LEG.L
+      position: {x: -4.4108217e-11, y: 0.004285187, z: 4.125468e-11}
+      rotation: {x: -0.03210652, y: 0.0002693385, z: 0.034418747, w: 0.99889165}
+      scale: {x: 1.0000008, y: 1.0000007, z: 0.9999998}
+    - name: HIP.R
+      parentName: SPINE
+      position: {x: 3.2196463e-17, y: 3.306195e-10, z: 1.3969838e-10}
+      rotation: {x: -0.38200986, y: -0.64894605, z: -0.2808361, w: 0.5950367}
+      scale: {x: 0.99999994, y: 0.9999999, z: 1}
+    - name: UPPER LEG.R
+      parentName: HIP.R
+      position: {x: -0.00015915543, y: 0.00077450846, z: -0.0006154871}
+      rotation: {x: 0.6041483, y: -0.33692318, z: 0.62165236, w: -0.36747235}
+      scale: {x: 1.0000005, y: 1.0000007, z: 1.0000006}
+    - name: SHIN.R
+      parentName: UPPER LEG.R
+      position: {x: 2.1191113e-10, y: 0.00428519, z: -2.4519976e-11}
+      rotation: {x: -0.03210659, y: -0.00026927885, z: -0.034418773, w: 0.9988916}
+      scale: {x: 1.0000007, y: 1.0000007, z: 1.0000001}
+    - name: FOOT.R
+      parentName: Armature
+      position: {x: 0.0012356814, y: 0.00006970716, z: 0.0010033164}
+      rotation: {x: 0.0013099653, y: -0.18861806, z: 0.98204964, w: -0.0002515989}
+      scale: {x: 1.0000001, y: 1.0000004, z: 1.0000012}
+    - name: BagMan
+      parentName: BagMan_Mesh_Tpose(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 153ef4ab45587ee47b56a9eb7fc8bfe0, type: 3}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 2
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

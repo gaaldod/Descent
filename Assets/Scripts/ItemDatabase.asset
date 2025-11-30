@@ -1,0 +1,271 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 138669a60fd8dc345859b20ddc2ad589, type: 3}
+  m_Name: ItemDatabase
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 11400001}
+  - {fileID: 11400002}
+  - {fileID: 11400003}
+  - {fileID: 11400004}
+  - {fileID: 11400005}
+  currencies: []
+  raritys: []
+  categories: []
+  equipments: []
+  itemGroups: []
+  settings: []
+--- !u!114 &11400001
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a78acd5557204d499bcf3420fd4ee78, type: 3}
+  m_Name: Cage Key
+  m_EditorClassIdentifier: 
+  m_Id: a1b2c3d4-e5f6-4789-a0b1-c2d3e4f5a6b7
+  m_ItemName: Cage Key
+  m_UseItemNameAsDisplayName: 1
+  m_DisplayName: New Item
+  m_Icon: {fileID: 0}
+  m_Prefab: {fileID: 0}
+  m_Description: A key to unlock the cage door.
+  m_Category: {fileID: 0}
+  m_IsSellable: 0
+  m_BuyPrice: 0
+  m_CanBuyBack: 1
+  m_BuyCurrency: {fileID: 0}
+  m_SellPrice: 0
+  m_SellCurrency: {fileID: 0}
+  m_Stack: 1
+  m_MaxStack: 1
+  m_IsDroppable: 1
+  m_DropSound: {fileID: 0}
+  m_OverridePrefab: {fileID: 0}
+  m_IsCraftable: 0
+  m_CraftingDuration: 2
+  m_UseCraftingSkill: 0
+  m_SkillWindow: Skills
+  m_CraftingSkill: {fileID: 0}
+  m_RemoveIngredientsWhenFailed: 0
+  m_MinCraftingSkillValue: 0
+  m_CraftingAnimatorState: Blacksmithy
+  m_CraftingModifier:
+    modifiers: []
+  ingredients: []
+  properties: []
+  m_UseCategoryCooldown: 0
+  m_Cooldown: 0
+  actions: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a78acd5557204d499bcf3420fd4ee78, type: 3}
+  m_Name: Attic Key
+  m_EditorClassIdentifier: 
+  m_Id: b2c3d4e5-f6a7-4890-b1c2-d3e4f5a6b7c8
+  m_ItemName: Attic Key
+  m_UseItemNameAsDisplayName: 1
+  m_DisplayName: New Item
+  m_Icon: {fileID: 0}
+  m_Prefab: {fileID: 0}
+  m_Description: A key to unlock the attic door.
+  m_Category: {fileID: 0}
+  m_IsSellable: 0
+  m_BuyPrice: 0
+  m_CanBuyBack: 1
+  m_BuyCurrency: {fileID: 0}
+  m_SellPrice: 0
+  m_SellCurrency: {fileID: 0}
+  m_Stack: 1
+  m_MaxStack: 1
+  m_IsDroppable: 1
+  m_DropSound: {fileID: 0}
+  m_OverridePrefab: {fileID: 0}
+  m_IsCraftable: 0
+  m_CraftingDuration: 2
+  m_UseCraftingSkill: 0
+  m_SkillWindow: Skills
+  m_CraftingSkill: {fileID: 0}
+  m_RemoveIngredientsWhenFailed: 0
+  m_MinCraftingSkillValue: 0
+  m_CraftingAnimatorState: Blacksmithy
+  m_CraftingModifier:
+    modifiers: []
+  ingredients: []
+  properties: []
+  m_UseCategoryCooldown: 0
+  m_Cooldown: 0
+  actions: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &11400003
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a78acd5557204d499bcf3420fd4ee78, type: 3}
+  m_Name: Basement Key
+  m_EditorClassIdentifier: 
+  m_Id: c3d4e5f6-a7b8-4901-c2d3-e4f5a6b7c8d9
+  m_ItemName: Basement Key
+  m_UseItemNameAsDisplayName: 1
+  m_DisplayName: New Item
+  m_Icon: {fileID: 0}
+  m_Prefab: {fileID: 0}
+  m_Description: A key to unlock the basement door.
+  m_Category: {fileID: 0}
+  m_IsSellable: 0
+  m_BuyPrice: 0
+  m_CanBuyBack: 1
+  m_BuyCurrency: {fileID: 0}
+  m_SellPrice: 0
+  m_SellCurrency: {fileID: 0}
+  m_Stack: 1
+  m_MaxStack: 1
+  m_IsDroppable: 1
+  m_DropSound: {fileID: 0}
+  m_OverridePrefab: {fileID: 0}
+  m_IsCraftable: 0
+  m_CraftingDuration: 2
+  m_UseCraftingSkill: 0
+  m_SkillWindow: Skills
+  m_CraftingSkill: {fileID: 0}
+  m_RemoveIngredientsWhenFailed: 0
+  m_MinCraftingSkillValue: 0
+  m_CraftingAnimatorState: Blacksmithy
+  m_CraftingModifier:
+    modifiers: []
+  ingredients: []
+  properties: []
+  m_UseCategoryCooldown: 0
+  m_Cooldown: 0
+  actions: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a78acd5557204d499bcf3420fd4ee78, type: 3}
+  m_Name: Gas Can
+  m_EditorClassIdentifier: 
+  m_Id: d4e5f6a7-b8c9-4012-d3e4-f5a6b7c8d9e0
+  m_ItemName: Gas Can
+  m_UseItemNameAsDisplayName: 1
+  m_DisplayName: New Item
+  m_Icon: {fileID: 0}
+  m_Prefab: {fileID: 0}
+  m_Description: A can of gasoline to fuel the generator.
+  m_Category: {fileID: 0}
+  m_IsSellable: 0
+  m_BuyPrice: 0
+  m_CanBuyBack: 1
+  m_BuyCurrency: {fileID: 0}
+  m_SellPrice: 0
+  m_SellCurrency: {fileID: 0}
+  m_Stack: 1
+  m_MaxStack: 1
+  m_IsDroppable: 1
+  m_DropSound: {fileID: 0}
+  m_OverridePrefab: {fileID: 0}
+  m_IsCraftable: 0
+  m_CraftingDuration: 2
+  m_UseCraftingSkill: 0
+  m_SkillWindow: Skills
+  m_CraftingSkill: {fileID: 0}
+  m_RemoveIngredientsWhenFailed: 0
+  m_MinCraftingSkillValue: 0
+  m_CraftingAnimatorState: Blacksmithy
+  m_CraftingModifier:
+    modifiers: []
+  ingredients: []
+  properties: []
+  m_UseCategoryCooldown: 0
+  m_Cooldown: 0
+  actions: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &11400005
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a78acd5557204d499bcf3420fd4ee78, type: 3}
+  m_Name: Note
+  m_EditorClassIdentifier: 
+  m_Id: e5f6a7b8-c9d0-4123-e4f5-a6b7c8d9e0f1
+  m_ItemName: Note
+  m_UseItemNameAsDisplayName: 1
+  m_DisplayName: New Item
+  m_Icon: {fileID: 0}
+  m_Prefab: {fileID: 0}
+  m_Description: A note with important information.
+  m_Category: {fileID: 0}
+  m_IsSellable: 0
+  m_BuyPrice: 0
+  m_CanBuyBack: 1
+  m_BuyCurrency: {fileID: 0}
+  m_SellPrice: 0
+  m_SellCurrency: {fileID: 0}
+  m_Stack: 1
+  m_MaxStack: 1
+  m_IsDroppable: 1
+  m_DropSound: {fileID: 0}
+  m_OverridePrefab: {fileID: 0}
+  m_IsCraftable: 0
+  m_CraftingDuration: 2
+  m_UseCraftingSkill: 0
+  m_SkillWindow: Skills
+  m_CraftingSkill: {fileID: 0}
+  m_RemoveIngredientsWhenFailed: 0
+  m_MinCraftingSkillValue: 0
+  m_CraftingAnimatorState: Blacksmithy
+  m_CraftingModifier:
+    modifiers: []
+  ingredients: []
+  properties: []
+  m_UseCategoryCooldown: 0
+  m_Cooldown: 0
+  actions: []
+  references:
+    version: 2
+    RefIds: []
