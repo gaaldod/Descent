@@ -29,6 +29,10 @@ public class EnemyAI : MonoBehaviour
     private float footstepInterval = 0.5f;
     private bool waitingAtPoint;
     private float waitTimer;
+    private float stuckTimer = 0f;
+    private Vector3 lastPosition;
+    private float stuckCheckInterval = 0.5f;
+    private float lastStuckCheckTime;
     
     public enum AIState
     {
@@ -166,15 +170,72 @@ public class EnemyAI : MonoBehaviour
     
     void Chase()
     {
-        if (player == null) return;
+        if (player == null || agent == null) return;
         if (IsPlayerHidden())
         {
             ReturnToPatrol();
             return;
         }
 
-        agent.SetDestination(player.position);
+        // Ensure agent is on NavMesh
+        if (!agent.isOnNavMesh)
+        {
+            // Try to warp agent to nearest NavMesh position
+            if (UnityEngine.AI.NavMesh.SamplePosition(transform.position, out NavMeshHit hit, 5f, UnityEngine.AI.NavMesh.AllAreas))
+            {
+                agent.Warp(hit.position);
+            }
+            else
+            {
+                Debug.LogWarning("[EnemyAI] Agent is not on NavMesh and cannot find valid position!");
+                return;
+            }
+        }
+
         agent.speed = chaseSpeed;
+        agent.isStopped = false;
+        
+        // Find the nearest valid point on NavMesh to the player
+        Vector3 targetPosition = GetNearestNavMeshPosition(player.position);
+        
+        // Check if agent is stuck (not moving but destination is far)
+        if (Time.time - lastStuckCheckTime > stuckCheckInterval)
+        {
+            lastStuckCheckTime = Time.time;
+            float distanceToTarget = Vector3.Distance(transform.position, targetPosition);
+            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+            
+            // If agent is not moving much but target is far, might be stuck
+            if (agent.velocity.magnitude < 0.1f && distanceToTarget > 1f && agent.pathStatus == UnityEngine.AI.NavMeshPathStatus.PathInvalid)
+            {
+                stuckTimer += stuckCheckInterval;
+                
+                // If stuck for more than 1 second, try to find a better path
+                if (stuckTimer > 1f)
+                {
+                    // Try to find a path to a point closer to the player
+                    Vector3 directionToPlayer = (player.position - transform.position).normalized;
+                    Vector3 alternativeTarget = transform.position + directionToPlayer * Mathf.Min(2f, distanceToPlayer * 0.5f);
+                    alternativeTarget = GetNearestNavMeshPosition(alternativeTarget);
+                    
+                    if (Vector3.Distance(transform.position, alternativeTarget) > 0.5f)
+                    {
+                        agent.SetDestination(alternativeTarget);
+                        stuckTimer = 0f;
+                    }
+                }
+            }
+            else if (agent.pathStatus == UnityEngine.AI.NavMeshPathStatus.PathComplete || agent.pathStatus == UnityEngine.AI.NavMeshPathStatus.PathPartial)
+            {
+                stuckTimer = 0f;
+            }
+        }
+        
+        // Only update destination if it's significantly different to avoid constant recalculation
+        if (Vector3.Distance(agent.destination, targetPosition) > 0.5f)
+        {
+            agent.SetDestination(targetPosition);
+        }
         
         float distance = Vector3.Distance(transform.position, player.position);
         bool canSee = CanSeePlayer();
@@ -186,6 +247,26 @@ public class EnemyAI : MonoBehaviour
         {
             currentState = AIState.Searching;
         }
+    }
+    
+    /// <summary>
+    /// Finds the nearest valid position on the NavMesh to the target position.
+    /// </summary>
+    private Vector3 GetNearestNavMeshPosition(Vector3 targetPosition)
+    {
+        if (UnityEngine.AI.NavMesh.SamplePosition(targetPosition, out NavMeshHit hit, 5f, UnityEngine.AI.NavMesh.AllAreas))
+        {
+            return hit.position;
+        }
+        
+        // If sampling fails, try a larger radius
+        if (UnityEngine.AI.NavMesh.SamplePosition(targetPosition, out hit, 10f, UnityEngine.AI.NavMesh.AllAreas))
+        {
+            return hit.position;
+        }
+        
+        // If still fails, return the agent's current position (don't move)
+        return agent != null && agent.isOnNavMesh ? transform.position : targetPosition;
     }
     
     void Attack()
